@@ -1,11 +1,12 @@
-import './scaffold.css';
-import './globals.css';
+import { cookies } from 'next/headers'
 
-const HomePage = () => (
-  <div>
-    <h1>Hello, world!</h1>
-    <p>Welcome to your new single-page application, built with React and TypeScript.</p>
-  </div>
-)
-
-export default HomePage;
+export default function HomePage() {
+  const cookieStore = cookies();
+  const tokenPos = cookieStore.get('token_pos');
+  console.log(tokenPos);
+  return (
+    <div className="flex min-h-screen">
+      <h1>Home Page</h1>
+    </div>
+  );
+}
