@@ -1,4 +1,6 @@
 import { cookies } from 'next/headers'
+import { CardData } from '@components/cardData';
+import { Sidebar } from '@components/sidebar';
 
 export default function HomePage() {
   const cookieStore = cookies();
@@ -6,7 +8,8 @@ export default function HomePage() {
   console.log('tokenPos', tokenPos);
   return (
     <div className="flex min-h-screen">
-      <h1>Home Page</h1>
+      <Sidebar />
+      <CardData title="Data 1" value="$123.00" />
     </div>
   );
 }

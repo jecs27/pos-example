@@ -1,24 +1,26 @@
+'use client';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 export function Sidebar() {
   const router = useRouter();
+  
   return (
     <div className="sidebar">
       <ul>
-        <li className={router.pathname === '/' ? 'active' : ''}>
+        <li>
           <Link href="/">
-            <a>Home</a>
+            Home
           </Link>
         </li>
-        <li className={router.pathname === '/about' ? 'active' : ''}>
-          <Link href="/about">
-            <a>About</a>
+        <li>
+          <Link href="/login">
+            About
           </Link>
         </li>
-        <li className={router.pathname === '/contact' ? 'active' : ''}>
+        <li>
           <Link href="/contact">
-            <a>Contact</a>
+            Contact
           </Link>
         </li>
       </ul>
@@ -35,18 +37,23 @@ export function Sidebar() {
           padding: 0;
         }
 
+        li {
+          margin-bottom: 10px;
+        }
+
         li a {
           display: block;
           color: #000;
           padding: 8px 16px;
           text-decoration: none;
+          border-radius: 4px;
         }
 
         li a:hover {
           background-color: #ddd;
         }
 
-        .active {
+        .active a {
           background-color: #4CAF50;
           color: white;
         }
