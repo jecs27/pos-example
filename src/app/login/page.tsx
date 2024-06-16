@@ -2,8 +2,8 @@
 import { TextInput } from '@tremor/react';
 import Image from 'next/image';
 import { login } from '../api/users';
-import { useRouter } from 'next/navigation'
-import { setCookie } from 'cookies-next'
+import { useRouter } from 'next/navigation';
+import { setCookie } from 'cookies-next';
 
 const BackgroundImage = () => (
   <div className="absolute inset-0">
@@ -21,10 +21,11 @@ const BackgroundImage = () => (
 export default function Login() {
   setCookie('token_pos', 'token_bearer_test', { secure: true });
   const router = useRouter();
+  
   const makeLogin = async () => {
     // const dataResponse = await login('user', 'password');
     // console.log(dataResponse);
-    router.push('/')
+    router.push('/');
   };
 
   return (
@@ -35,10 +36,10 @@ export default function Login() {
 
       <div className="w-2/3 flex items-center justify-center px-4 py-10 lg:px-6">
         <div className="w-full max-w-md">
-          <h3 className="text-tremor-title font-bold">
+          <h3 className="text-tremor-title font-bold mb-2">
             Hola Bienvenido!
           </h3>
-          <div className="space-y-3">
+          <div className="space-y-4">
             <TextInput
               type="email"
               id="email"
@@ -51,26 +52,27 @@ export default function Login() {
               id="password"
               name="password"
               placeholder="Contraseña"
+              className="mt-2"
             />
-            <div className="flex justify-between">
-              <a href="#" className="text-tremor-brand hover:underline">
-                Olvidaste tu contraseña?
-              </a>
-            </div>
             <button
               type="button"
               onClick={makeLogin}
-              className="w-full whitespace-nowrap rounded-tremor-default bg-tremor-brand py-2 text-center text-tremor-brand-inverted"
+              className="mt-4 w-full whitespace-nowrap rounded-tremor-default bg-tremor-brand py-2 text-center text-tremor-brand-inverted"
               style={{ backgroundColor: '#95AFBE' }}
             >
               Log in
             </button>
-            <div className="text-center">
-              <span className="text-tremor-default">No tienes cuenta?</span>{' '}
-              <a href="/contacto" className="text-tremor-brand hover:underline">
-                Contáctanos
-              </a>
-            </div>
+          </div>
+          <div className="mt-2 text-right">
+            <a href="/forgot-password" className="text-tremor-brand underline">
+              ¿Olvidaste tu contraseña?
+            </a>
+          </div>
+          <div className="mt-4">
+            <span>No tienes cuenta? </span>
+            <a href="/contact" className="font-bold underline">
+              Contáctanos
+            </a>
           </div>
         </div>
       </div>
