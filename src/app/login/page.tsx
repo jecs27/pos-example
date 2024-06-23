@@ -18,23 +18,36 @@ const BackgroundImage = () => (
   </div>
 );
 
+const LogoImage = () => (
+  <div className="absolute top-0 left-0 w-1/3 h-full mt-5 ml-5" >
+  <Image
+    height={400}
+    width={220}
+    src="/logo.png"
+    alt="logo"
+    objectFit="cover"
+    objectPosition="left top"
+  />
+</div>
+);
+
 export default function Login() {
   setCookie('token_pos', 'token_bearer_test', { secure: true });
   const router = useRouter();
   
   const makeLogin = async () => {
-    // const dataResponse = await login('user', 'password');
-    // console.log(dataResponse);
-    router.push('/');
+    const dataResponse = await login('user', 'password');
+    alert(dataResponse);
+    // router.push('/');
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen relative">
       <div className="w-1/3 relative">
         <BackgroundImage />
       </div>
-
-      <div className="w-2/3 flex items-center justify-center px-4 py-10 lg:px-6">
+      <LogoImage />
+      <div className="w-2/3 flex items-center justify-center px-4 py-10 lg:px-6 relative z-10 bg-white bg-opacity-75">
         <div className="w-full max-w-md">
           <h3 className="text-tremor-title font-bold mb-2">
             Hola Bienvenido!
