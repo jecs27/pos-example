@@ -32,12 +32,14 @@ const LogoImage = () => (
 );
 
 export default function Login() {
-  setCookie('token_pos', 'token_bearer_test', { secure: true });
-  const router = useRouter();
-  
   const makeLogin = async () => {
-    const dataResponse = await login('user', 'password');
-    alert(dataResponse);
+    await login('user', 'password')
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
     // router.push('/');
   };
 
