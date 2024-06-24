@@ -16,7 +16,13 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
   {
     title: 'Configuración',
     path: '/settings',
-    icon: <Icon icon="lucide:settings" width="20" height="20" />
+    icon: <Icon icon="lucide:settings" width="20" height="20" />,
+    submenu: true,
+    subMenuItems: [
+      { title: 'Usuario', path: '/settings' },
+      { title: 'Categorias', path: '/settings/categories' },
+      { title: 'Productos', path: '/settings/products' },
+    ],
   },
   {
     title: 'Ayuda',
